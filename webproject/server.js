@@ -13,7 +13,12 @@ const API     = '/api';
 
 app.use(bodyParser.json());
 app.use(cors());
-app.use(express.static('assets')); // serve frontend static files
+app.use(express.static('assets'));           // serve frontend static files
+
+// serve index.html when visiting the root path
+app.get('/', (req, res) =>
+  res.sendFile(path.join(__dirname, 'index.html'))
+);
 
 // initialize database
 if (process.argv.includes('--init-db')) {
@@ -85,4 +90,7 @@ app.get(`${API}/results/:eid`, (req, res) => {
 
 // Start server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`🚀 Server listening on http://localhost:${PORT}`));
+app.listen(PORT, () =>
+  console.log(`🚀 Server listening on http://localhost:${PORT}`)
+);
+
