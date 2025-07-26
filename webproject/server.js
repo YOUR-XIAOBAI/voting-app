@@ -13,7 +13,7 @@ const API     = '/api';
 
 app.use(bodyParser.json());
 app.use(cors());
-app.use(express.static('assets'));           // serve frontend static files
+app.use('/assets', express.static(path.join(__dirname, 'assets')));        // serve frontend static files
 
 // serve index.html when visiting the root path
 app.get('/', (req, res) =>
