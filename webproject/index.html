@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Voting App</title>
+  <link rel="stylesheet" href="assets/style/style.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Voting App</h1>
+    <nav>
+      <button class="button-gradient" data-sec="register">Register</button>
+      <button class="button-gradient" data-sec="create">Create Event</button>
+      <button class="button-gradient" data-sec="vote">Vote</button>
+      <button class="button-gradient" data-sec="results">Results</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="register">
+      <h2>User Verification</h2>
+      <form id="f-register">
+        <input type="text" id="user" placeholder="First Name" required/>
+        <input type="text" id="user" placeholder="Last Name" required/>
+        <button type="submit">Submit</button>
+        
+      </form>
+    </section>
+
+    <section id="create" class="hidden">
+      <h2>Create Event</h2>
+      <form id="f-create">
+        <input type="text" id="title" placeholder="Event Title" required/>
+        <div id="slots">
+          <input type="datetime-local" name="slot" required/>
+        </div>
+        <input type="number" id="max" placeholder="Max Votes per Person" min="1" value="1"/>
+        <div class="button-group">
+         <button type="button" id="add-slot">+ Add Slot</button>
+         <button type="submit">Create</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="vote" class="hidden">
+      <h2>Vote</h2>
+      <div id="vote-area"></div>
+    </section>
+
+    <section id="results" class="hidden">
+      <h2>Results</h2>
+      <canvas id="chart"></canvas>
+    </section>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
